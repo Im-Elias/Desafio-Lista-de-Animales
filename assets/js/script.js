@@ -49,6 +49,7 @@ class Mascota extends Animal {
   }
 }
 
+//Captura de datos e impresión
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault();
   const nombrePropietario = document.querySelector("#propietario").value;
