@@ -6,14 +6,9 @@ class Propietario {
     this.telefono = telefono;
   }
   datosPropietario() {
-    return `<ul>
-                <li>El nombre del dueño es ${this.nombre}.</li>
-                <li>El domicilio es ${this.direccion}.</li>
-                <li>Número telefonico de contacto es ${this.telefono}.</li>        
-                <li>El tipo de animal es un ${this._tipo}.</li>
-                <li>El nombre de la mascota es ${this._nombreMascota}.</li>
-                <li>Enfermedad: ${this._enfermedad}.</li>
-            </ul>`;
+    return `El nombre del dueño es ${this.nombre}.
+El domicilio es ${this.direccion}.
+Número telefonico de contacto es ${this.telefono}.`;
   }
 }
 
@@ -24,7 +19,7 @@ class Animal extends Propietario {
     this._tipo = tipo;
   }
   get tipo() {
-    return `El tipo de animal es un: ${this.tipo}`;
+    return `El tipo de animal es: ${this._tipo}`;
   }
 }
 
@@ -69,7 +64,12 @@ document.querySelector("form").addEventListener("submit", (event) => {
         nombreMascota,
         enfermedad
       );
-      document.querySelector("#resultado").innerHTML = perro.datosPropietario();
+      document.querySelector("#resultado").innerHTML = `<ul>
+        <li>${perro.datosPropietario()}</li>
+        <li>${perro.tipo}, mientras que el nombre de la mascota es ${
+        perro.nombreMascota
+      } y la enfermedad es ${perro.enfermedad}.</li>
+      </ul>`;
       break;
     case "gato":
       const gato = new Mascota(
@@ -80,7 +80,12 @@ document.querySelector("form").addEventListener("submit", (event) => {
         nombreMascota,
         enfermedad
       );
-      document.querySelector("#resultado").innerHTML = gato.datosPropietario();
+      document.querySelector("#resultado").innerHTML = `<ul>
+        <li>${gato.datosPropietario()}</li>
+        <li>${gato.tipo}, mientras que el nombre de la mascota es ${
+        gato.nombreMascota
+      } y la enfermedad es ${gato.enfermedad}.</li>
+      </ul>`;
       break;
     case "conejo":
       const conejo = new Mascota(
@@ -91,8 +96,12 @@ document.querySelector("form").addEventListener("submit", (event) => {
         nombreMascota,
         enfermedad
       );
-      document.querySelector("#resultado").innerHTML =
-        conejo.datosPropietario();
+      document.querySelector("#resultado").innerHTML = `<ul>
+        <li>${conejo.datosPropietario()}</li>
+        <li>${conejo.tipo}, mientras que el nombre de la mascota es ${
+        conejo.nombreMascota
+      } y la enfermedad es ${conejo.enfermedad}.</li>
+      </ul>`;
       break;
   }
 });
